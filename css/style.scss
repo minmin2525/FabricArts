@@ -1,0 +1,331 @@
+@charset "utf-8";
+
+$color-main: #000000;
+$color-bg: #FDF8EB;
+$color-accent: #E40065;
+$color-text: #898989;
+$color-white: #FFFFFF;
+
+@mixin py($p: 100px) {
+    padding-top: $p;
+    padding-bottom: $p;
+}
+
+@mixin inner($w: (1170/1600)*100%) {
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin flex($j: space-between, $a: center) {
+    display: flex;
+    justify-content: $j;
+    align-items: $a;
+}
+
+
+/*base*/
+body {
+    color: $color-main;
+    font-size: 14px;
+    line-height: (24/14);
+    letter-spacing: (50/1000)+em;
+    font-family: "Helvetica", "Helvetica Neue", "Yu Gothic", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding-left: 0;
+}
+
+
+/*MODULE
+-------------------------*/
+/*header*/
+.header {
+    padding-top: 70px;
+    padding-bottom: 100px;
+
+    &__inner {
+        @include inner();
+        @include flex();
+    }
+
+    &__logo {
+        width: 167PX;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__nav {
+        width: 370px;
+        @include flex;
+    }
+
+    &__item {
+        font-weight: bold;
+        list-style-type: none;
+    }
+}
+
+/*unit*/
+.unit {
+    margin-bottom: 59px;
+
+    &__catch {
+        margin-bottom: 20px;
+        color: $color-text;
+        font-size: 12px;
+        line-height: (20/12);
+    }
+
+    &__title {
+        margin-bottom: 90px;
+        font-size: 38px;
+        font-weight: normal;
+        text-transform: uppercase;
+        line-height: (49/38);
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 120px;
+            border-bottom: 1px solid $color-main;
+        }
+    }
+
+    &__ja {
+
+        margin-bottom: 40px;
+    }
+
+    &__eng {
+        font-style: italic;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
+
+/*card*/
+.card {
+
+    &__body {
+        margin-top: 30px;
+    }
+
+    &__title {
+        margin-bottom: 15px;
+        font-size: 20px;
+        line-height: (26/20);
+    }
+
+    &__type {
+        color: $color-text;
+    }
+
+    &__text {
+        margin-top: 40px;
+        ;
+    }
+}
+
+/*story*/
+.story {
+    &__item {
+        @include py($p: 150px);
+        padding-left: 80px;
+        color: $color-white;
+    }
+}
+
+/*outline*/
+.outline {
+    &__title {
+        padding: 6px 11px;
+        display: inline-block;
+        color: $color-white;
+        background-color: $color-accent;
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: (20/12);
+    }
+
+    &__text {
+        margin-top: 30px;
+        font-size: 20px;
+        line-height: (34/20);
+    }
+
+    &__list {
+        margin-top: 40px;
+        margin-bottom: -15px;
+    }
+
+    &__item {
+        margin-bottom: 15px;
+        ;
+        list-style-type: none;
+    }
+}
+
+/*footer*/
+.footer {
+
+    &__contents {
+        @include py();
+        background-color: $color-main;
+        text-align: center;
+    }
+
+    &__inner {
+        @include inner();
+    }
+
+    &__title {
+        margin-bottom: 30px;
+        color: $color-white;
+        font-size: 32px;
+        line-height: (42/32);
+    }
+
+    &__form {
+        @include flex($j: center, $a: strech);
+
+        input[type="text"] {
+            width: 300px;
+            height: 40px;
+            border: none;
+        }
+
+        input[type="submit"] {
+            color: $color-white;
+            background-color: $color-accent;
+            border: none;
+            padding: 13px 35px;
+            line-height: 1;
+            margin-left: 0;
+        }
+    }
+
+    &__list {
+        @include inner($w: 451px);
+        @include flex();
+    }
+
+    &__item {
+        padding-right: 20px;
+        color: $color-white;
+        list-style-type: none;
+        line-height: (17/14);
+        border-right: 1px solid $color-white;
+
+        &:last-child {
+            padding-right: 0;
+            border-right: none;
+        }
+    }
+
+    &__copy {
+        padding-top: 100px;
+        padding-bottom: 60px;
+        display: block;
+        color: $color-text;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: (20/12);
+        letter-spacing: (50/1000)em;
+        text-align: right;
+    }
+
+}
+
+
+/*INDEX------------------------------------*/
+/*works*/
+.works {
+    @include py();
+
+    &__inner {
+        @include inner();
+    }
+
+    &__list {
+        @include flex();
+    }
+
+    &__item {
+        width: (370/1170)*100%;
+    }
+}
+
+/*project*/
+.project {
+    @include py();
+    background-color: $color-bg;
+
+    &__inner {
+        @include inner();
+    }
+
+    &__list {
+        @include flex();
+    }
+}
+
+/*COMPANY--------------------------*/
+.company {
+    margin-top: 100px;
+    margin-bottom: 60px;
+
+    &__inner {
+        @include inner();
+
+        .unit {
+            @include flex($a: flex-start);
+
+
+            &__body {
+                width: 700px;
+            }
+        }
+    }
+
+    .story {
+        &-01 {
+            margin-bottom: 60px;
+            background: url(../images/bg_project01.jpg) no-repeat center center /cover;
+        }
+
+        &-02 {
+            margin-bottom: 60px;
+            background: url(../images/bg_project02.jpg)no-repeat center center /cover;
+        }
+
+    }
+
+    .overview {
+        padding-top: 60px;
+        padding-bottom: 100px;
+
+        &__list {
+            @include flex($a: flex-start);
+        }
+
+        &__item {
+            width: (370/1170)*100%;
+        }
+    }
+}
